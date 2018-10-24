@@ -33,7 +33,7 @@ info.addEventListener('click', function(event) {
 	}
 });
 
-let deadline = '2018-12-27';
+const deadline = '2018-12-27';
 
 function getTimeRemaining(endtime) {
 	if (Date.parse(endtime) > Date.parse(new Date())) {
@@ -42,11 +42,11 @@ function getTimeRemaining(endtime) {
 				minutes = Math.floor((t / 1000 / 60) % 60),
 				hours = Math.floor((t / (1000 * 60 * 60)));
 		if (hours < 10) {
-			hours = '0' + hours;
+			hours = `0 ${ hours}` ;
 		} if (minutes < 10) {
-			minutes = '0' + minutes;
+			minutes = `0 ${minutes} `;
 		} if (seconds < 10) {
-			seconds = '0' + seconds;
+			seconds = `0 ${seconds} `;
 		}
 		return {
 			'total': t,
@@ -60,13 +60,13 @@ function getTimeRemaining(endtime) {
 				minutes = 0,
 				hours = 0;
 		if (hours < 10) {
-			hours = '0' + hours;
+			hours = `0 ${hours}`;
 		}
 		if (minutes < 10) {
-			minutes = '0' + minutes;
+			minutes = `0 ${minutes} `;
 		}
 		if (seconds < 10) {
-			seconds = '0' + seconds;
+			seconds = `0 ${seconds} `;
 		}
 		return {
 			'total': t,
@@ -78,11 +78,11 @@ function getTimeRemaining(endtime) {
 }
 
 function setClock(id,endtime){
-	let timer = document.getElementById(id),
+	const timer = document.getElementById(id),
 			hours = timer.querySelector('.hours'),
 			minutes = timer.querySelector('.minutes'),
 			seconds = timer.querySelector('.seconds');
-	var timeInterval = setInterval(updateClock,1000);
+	let timeInterval = setInterval(updateClock,1000);
 function updateClock() {
 	let t = getTimeRemaining(endtime);
 	hours.textContent = t.hours;
@@ -95,7 +95,7 @@ function updateClock() {
 }
 setClock('timer', deadline);
 
-let more = document.querySelector('.more'),
+const more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close');
 
