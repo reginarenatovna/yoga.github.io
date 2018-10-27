@@ -173,4 +173,23 @@ let message = {
 		sendForm(form);
 		sendForm(formContact);
 	}
+function	validate() {
+	const inputPhone = document.querySelector('.popup-form__input');
+	console.log(inputPhone);
+	inputPhone.setAttribute('maxLenght',12);
+	phone(inputPhone)
+}
+	validate()
+function phone(inp) {
+	inp.addEventListener('input', () => {
+		if (!/^\+\d*$/.test(inp.value)) {
+			inp.value = '+';
+		}
+	});
+	inp.addEventListener('keypress', event => {
+		if (!/\d/.test(event.key)) {
+			event.preventDefault()
+		}
+	});
+}
 });
