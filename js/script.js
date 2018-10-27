@@ -120,16 +120,49 @@ close.addEventListener('click', function(){
 	more.classList.remove('more-splash');
 	document.body.style.overflow = '';
 });
+
+
 //Form 
 let message = {
 	loading: "Загрузка...",
 	success: 'Спасибо! Мы скоро с вами свяжемся!',
 	failure: 'Что-то пошло не так'
 };
+
+
 	let form = document.querySelector('.main-form'),
+			formContact = document.querySelector('.contact-form"'),
+			inputContact = formContact.getElementsByTagName('input'),
 			input = form.getElementsByTagName('input'),
 			statusMessage = document.createElement('div');
 			statusMessage.classList.add('status');
+	formContact.addEventListener('submit', function(){
+		event.preventDefault();
+		form.appendChild(statusMessage);
+		let req = new XMLHttpRequest();
+		req.open('POST', 'server.php');
+		req.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+		let formDt = new FormData(form);
+
+		let object = {};
+		formDt.forEach(function (value, key) {
+			object[key] = value;
+		});
+		let json = JSON.stringify(object);
+		req.send(json);
+		req.addEventListener('readystatechange', function () {
+			if (req.readyState < 4) {
+				statusMessage.innerHTML = message.loading;
+			} else if (req.readyState === 4 && req.status == 200) {
+				statusMessage.innerHTML = message.success;
+			} else {
+				statusMessage.innerHTML = message.failure;
+			}
+		});
+		for (let i = 0; i < inputContact.length; i++) {
+			inputContact[i].value = '';
+		}
+	});
 	form.addEventListener('submit' , function(event){
 	event.preventDefault();
 	form.appendChild(statusMessage);
@@ -144,9 +177,8 @@ let message = {
 		formData.forEach(function(value,key){
 			obj[key] = value;
 		});
-		console.log(obj);
-		let jsn = JSON.stringify(obj);
-		request.send(jsn);
+		let json = JSON.stringify(obj);
+		request.send(json);
 	
 	request.addEventListener('readystatechange', function(){
 			if (request.readyState < 4) {
