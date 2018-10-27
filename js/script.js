@@ -174,12 +174,15 @@ let message = {
 		sendForm(formContact);
 	}
 function	validate() {
-	const inputPhone = document.querySelector('.popup-form__input');
+	const inputPhone = document.querySelector('.popup-form__input'),
+				inputContact = document.querySelectorAll('#form input')[1];
 	console.log(inputPhone);
 	inputPhone.setAttribute('maxLenght',12);
-	phone(inputPhone)
+	inputContact.setAttribute('maxLenght', 12);
+	phone(inputPhone);
+	phone(inputContact);
 }
-	validate()
+	validate();
 function phone(inp) {
 	inp.addEventListener('input', () => {
 		if (!/^\+\d*$/.test(inp.value)) {
