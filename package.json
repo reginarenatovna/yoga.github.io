@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Yoga project",
   "main": "webpack.config.js",
-  "dependencies": {},
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "7.1.4",

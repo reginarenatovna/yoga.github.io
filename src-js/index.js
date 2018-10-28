@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', function(){
 
 'use strict';
+require("babel-polyfill");
 let tabs = require('./parts/tabs.js'),
 		form = require('./parts/form.js'),
 		timer = require('./parts/timer.js'),
