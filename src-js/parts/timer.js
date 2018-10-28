@@ -8,13 +8,13 @@ function timer() {
 				minutes = Math.floor((t / 1000 / 60) % 60),
 				hours = Math.floor((t / (1000 * 60 * 60)));
 			if (hours < 10) {
-				hours = `0 ${ hours}`;
+				hours = [`0 ${ hours}`];
 			}
 			if (minutes < 10) {
-				minutes = `0 ${minutes} `;
+				minutes = [`0 ${minutes} `];
 			}
 			if (seconds < 10) {
-				seconds = `0 ${seconds} `;
+				seconds = [`0 ${seconds} `];
 			}
 			return {
 				'total': t,
@@ -28,13 +28,13 @@ function timer() {
 				minutes = 0,
 				hours = 0;
 			if (hours < 10) {
-				hours = `0 ${hours}`;
+				hours = `{0 ${hours}}`;
 			}
 			if (minutes < 10) {
-				minutes = `0 ${minutes} `;
+				minutes = `{0 ${minutes}}`;
 			}
 			if (seconds < 10) {
-				seconds = `0 ${seconds} `;
+				seconds = `{0 ${seconds}}`;
 			}
 			return {
 				'total': t,
