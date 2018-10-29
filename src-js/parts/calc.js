@@ -45,7 +45,7 @@ function calc() {
 				let a = total;
 				totalValue.textContent = a * place.options[place.selectedIndex].value;
 			}
-			if (persons.value == '' || persons.value == 0) {
+			if (restDays.value == '' || restDays.value == 0) {
 				totalValue.textContent = 0;
 			}
 		});
