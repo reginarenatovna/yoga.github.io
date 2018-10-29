@@ -51,7 +51,7 @@ function calc() {
 		});
 
 		place.addEventListener('change', function () {
-		if (restDays.value == '' || persons.value == '') {
+		if (restDays.value == '' || persons.value == 0) {
 			totalValue.textContent = 0;
 		} else {
 			let a = total;
