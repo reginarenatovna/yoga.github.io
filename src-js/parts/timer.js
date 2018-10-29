@@ -66,4 +66,4 @@ function timer() {
 	setClock('timer', deadline);
 }
 
-module.export = timer;
+module.exports = timer;
