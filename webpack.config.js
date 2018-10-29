@@ -18,7 +18,9 @@ let conf = {
 				// exclude : '/node_modules'
 			}
 		]
-	}
+	},
+	watch: true,
+	devtool: 'cheap-eval-source-map'
 };
 
 module.exports = conf; 
