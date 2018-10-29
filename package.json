@@ -7,6 +7,9 @@
     "babel-polyfill": "^6.26.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "babel-core": "^6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "^1.7.0",
