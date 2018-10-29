@@ -47,9 +47,9 @@ function form() {
 				.catch(() => statusMessage.innerHTML = message.failure)
 				.then(clearInput)
 		});
-		sendForm(form);
-		sendForm(formContact);
 	}
+	sendForm(form);
+	sendForm(formContact);
 
 	function validate() {
 		const inputPhone = document.querySelector('.popup-form__input'),
